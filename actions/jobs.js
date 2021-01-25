@@ -17,6 +17,12 @@ const jobsAction = (reducer, initialState) => {
         }
     };
 
+    const clearSearch = ()=>{
+        dispatch({
+            type: constant.jobs.CLEAR_SEARCH
+        })
+    }
+
     const searchJobs = async (params) => {
         try {
             const jobs = await axios.get("/api/jobs", { params });
@@ -32,6 +38,14 @@ const jobsAction = (reducer, initialState) => {
 
     const sortJobs = async (params) => {
         try {
+            dispatch({
+                type: constant.jobs.SET_SORTER,
+                payload: {
+                    sorter: params.sorter,
+                    order: params.order
+                }
+            });
+            delete params.sorter;
             const jobs = await axios.get("/api/jobs", { params });
             dispatch({
                 params,
@@ -55,7 +69,7 @@ const jobsAction = (reducer, initialState) => {
             throw e;
         }
     };
-    return { state, getJobs, sortJobs, filterJobs, searchJobs };
+    return { state, getJobs, sortJobs, filterJobs, searchJobs,clearSearch };
 };
 
 export default jobsAction;

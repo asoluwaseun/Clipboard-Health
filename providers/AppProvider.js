@@ -10,11 +10,19 @@ export const context = React.createContext({
         list: [],
         current_filter: "",
         current_sort: "",
-        current_search: ""
+        current_search: "",
+        sorters: {
+            location: "",
+            required_skills: "",
+            department: "",
+            required_credential: "",
+            experience: "",
+        }
     },
     search: () => {},
     filter: () => {},
-    sort: () => {}
+    sort: () => {},
+    clearSearch: () => {}
 });
 
 const AppProvider = (props) => {
@@ -26,13 +34,21 @@ const AppProvider = (props) => {
         filterJobs,
         sortJobs,
         searchJobs,
+        clearSearch,
         state: jobs
     } = getJobsAction(jobsReducer, {
         jobs: {
             list: [],
             current_filter: "",
             current_sort: "",
-            current_search: ""
+            current_search: "",
+            sorters: {
+                location: "",
+                required_skills: "",
+                department: "",
+                required_credential: "",
+                experience: "",
+            }
         }
     });
 
@@ -47,7 +63,8 @@ const AppProvider = (props) => {
             jobs: jobs.jobs,
             sort: sortJobs,
             filter: filterJobs,
-            search: searchJobs
+            search: searchJobs,
+            clearSearch: clearSearch
         };
     }, [filters, jobs]);
 

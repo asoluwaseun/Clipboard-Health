@@ -8,6 +8,7 @@ const JobDescription = React.memo(({job_description}) => {
     const [isDetailsShowing, showDetails] = useState(false);
 
     return (
+        <div>
         <div className="mb-6 cursor-pointer md:flex md:justify-between items-center">
             <div className="flex items-start text-left flex-col" onClick={() => showDetails(!isDetailsShowing)}>
                 <span className="font-bold">{job_description.job_title}</span>
@@ -16,7 +17,7 @@ const JobDescription = React.memo(({job_description}) => {
                 <span>
                     <Moment fromNow>{job_description.created}</Moment>
                 </span>
-
+        </div>
             {isDetailsShowing && (
                 <div
                     className="flex flex-col lg:flex-row w-full"
@@ -48,7 +49,6 @@ const JobDescription = React.memo(({job_description}) => {
                 </div>
             )}
         </div>
-
     );
 });
 

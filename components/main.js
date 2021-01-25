@@ -50,11 +50,11 @@ const Main = React.memo(()=> {
         <div className="w-full lg:ml-3 lg:w-3/4">
             <div className="h-15 p-3 bg-white rounded-sm shadow-sm">
                 <div className="flex p-3">
-                    <div className="w-3/12">
+                    <div className="w-full md:w-3/12">
                         <span className="font-bold">{total_jobs_counter(_context.jobs.list)}</span> job postings
                     </div>
 
-                    <div className="w-9/12 float-right">
+                    <div className="hidden md:block md:w-9/12 float-right">
                         <ul>
                             <li className="text-gray-400 mx-3 inline-block">Sort by: </li>
                             {

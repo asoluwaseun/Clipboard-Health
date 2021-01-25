@@ -1,0 +1,7 @@
+{
+    "name": "ClipBoardHealth",
+    "short_name": "ClipBoard",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/"
+}

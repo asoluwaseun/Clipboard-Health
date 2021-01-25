@@ -1,9 +1,24 @@
 import React from "react";
+import Head from "next/head";
 
 export default function Header() {
-    const nav_items = ["profile","jobs","professional network","lounge","salary"];
+    const nav_items = ["profile", "jobs", "professional network", "lounge", "salary"];
     return (
         <nav>
+            <Head>
+                <meta charset='utf-8' />
+                <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+                <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
+                <meta name='description' content='Description' />
+                <meta name='keywords' content='Keywords' />
+                <title>Next.js PWA Example</title>
+
+                <link rel='manifest' href='/manifest.json' />
+                <link href='/favicon-16x16.png' rel='icon' type='image/png' sizes='16x16' />
+                <link href='/favicon-32x32.png' rel='icon' type='image/png' sizes='32x32' />
+                <link rel='apple-touch-icon' href='/apple-icon.png'></link>
+                <meta name='theme-color' content='#317EFB' />
+            </Head>
             <div className="bg-white p-3 px-5 flex flex-wrap justify-between items-center sm:visible">
                 <div className="w-9/12 lg:w-1/4 font-bold text-blue-400">
                     <span className="lg:hidden">&#9776;</span>
@@ -11,7 +26,7 @@ export default function Header() {
                 </div>
                 <div className="w-auto sm:w-full lg:w-auto hidden lg:block">
                     {
-                        nav_items.map((item)=>{
+                        nav_items.map((item) => {
                             return (
                                 <a key={item} href="#" className="mx-4 font-bold uppercase">
                                     {item}

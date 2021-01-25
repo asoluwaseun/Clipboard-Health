@@ -58,9 +58,9 @@ const Main = React.memo(()=> {
                         <ul>
                             <li className="text-gray-400 mx-3 inline-block">Sort by: </li>
                             {
-                                sorters.map((sort)=>{
+                                sorters.map((sort,i)=>{
                                     return (
-                                        <li className="mx-3 cursor-pointer font-bold inline-block"
+                                        <li key={i} className="mx-3 cursor-pointer font-bold inline-block"
                                         onClick={()=>{
                                            sorter(sort.identifier);
                                         }}

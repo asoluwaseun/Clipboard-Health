@@ -15,6 +15,7 @@ const filtersAction = (reducer, initialState) => {
             throw e;
         }
     };
+    
     return { state, getFilters };
 };
 

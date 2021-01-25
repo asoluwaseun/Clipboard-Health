@@ -19,11 +19,20 @@ export const context = React.createContext({
             experience: "",
         }
     },
-    search: () => {},
-    filter: () => {},
-    sort: () => {},
-    clearSearch: () => {}
+    search: () => { },
+    filter: () => { },
+    sort: () => { },
+    clearSearch: () => {},
+    filterModal: {
+        visibility: false,
+        name: "",
+        raw_name: "",
+        items: []
+    },
+    handleFilterModal: () => { }
 });
+
+
 
 const AppProvider = (props) => {
     const { state: filters, getFilters } = getFiltersAction(filtersReducer, {
@@ -52,6 +61,13 @@ const AppProvider = (props) => {
         }
     });
 
+    const [filterModal, handleFilterModal] = React.useState({
+        visibility: false,
+        name: "",
+        raw_name: "",
+        items: []
+    });
+
     React.useEffect(async () => {
         await getFilters();
         await getJobs();
@@ -59,14 +75,16 @@ const AppProvider = (props) => {
 
     const contextValue = React.useMemo(() => {
         return {
+            filterModal,
             filters: filters.filters,
             jobs: jobs.jobs,
             sort: sortJobs,
             filter: filterJobs,
             search: searchJobs,
-            clearSearch: clearSearch
+            clearSearch: clearSearch,
+            handleFilterModal: handleFilterModal
         };
-    }, [filters, jobs]);
+    }, [filters, jobs, filterModal]);
 
     return (
         <context.Provider value={contextValue}>

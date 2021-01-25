@@ -10,11 +10,11 @@ const Index = () => (
     <AppProvider>
         <Layout>
             <div className="flex">
-                <Search/>
+                <Search />
             </div>
             <div className="flex">
-                <SideBar/>
-                <Main/>
+                <SideBar />
+                <Main />
             </div>
         </Layout>
     </AppProvider>
